@@ -14,7 +14,11 @@ with open("modelv1.keras", "rb") as fp:
         mime="application/octet-stream"
     )
 # charger un fichier
-fichier = st.file_uploader("Choisir un fichier", type=["png", "jpg", "jpeg", "mp4"])
+fichier = st.file_uploader("Choisir un fichier", 
+                           type=["png", "jpg", "jpeg", "mp4"],
+                           help="Video ou photo",
+                           label_visibility="visible",
+                          )
 
 # prendre une photo
 enable = st.checkbox("Enable camera", key="enable")
