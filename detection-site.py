@@ -3,14 +3,22 @@ from utils import process_fichier, process_video, predict, afficher_prediction
 
 IMG_W, IMG_H = 224, 224
 
-# model = tf.keras.models.load_model('modelv2.keras')
-# model = tf.keras.models.load_model('modelv1.keras')
-
 # Nom de l'application
 st.title('Détection du niveau de remplissage des conteneurs à déchets')
 
-# charger un fichier
-fichier = st.file_uploader("Choisir un fichier", type=["png", "jpg", "jpeg", "mp4"])
+col1, col2 = st.columns([4, 1])
+with col2:
+    with open("modelv1.keras", "rb") as fp:
+        btn = st.download_button(
+            label="Télécharger le modèle",
+            data=fp,
+            file_name="modelv1.keras",
+            mime="application/octet-stream"
+        )
+
+with col1:
+    # charger un fichier
+    fichier = st.file_uploader("Choisir un fichier", type=["png", "jpg", "jpeg", "mp4"])
 
 # prendre une photo
 enable = st.checkbox("Enable camera", key="enable")
@@ -49,13 +57,3 @@ if fichier is not None:
 
         # affichage de l'image utilisée pour la prédiction
         st.image(fichier, use_container_width=True)
-
-col1, col2, col3 = st.columns([1, 3, 1])
-with col2:
-    with open("modelv1.keras", "rb") as fp:
-        btn = st.download_button(
-            label="Télécharger le modèle",
-            data=fp,
-            file_name="modelv1.keras",
-            mime="application/octet-stream"
-        )
