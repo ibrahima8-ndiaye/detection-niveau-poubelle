@@ -50,11 +50,12 @@ if fichier is not None:
         # affichage de l'image utilisée pour la prédiction
         st.image(fichier, use_container_width=True)
 
-
-with open("modelv1.keras", "rb") as fp:
-    btn = st.download_button(
-        label="Télécharger le modèle",
-        data=fp,
-        file_name="modelv1.keras",
-        mime="application/octet-stream"
-    )
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    with open("modelv1.keras", "rb") as fp:
+        btn = st.download_button(
+            label="Télécharger le modèle",
+            data=fp,
+            file_name="modelv1.keras",
+            mime="application/octet-stream"
+        )
