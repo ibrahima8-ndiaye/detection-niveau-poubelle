@@ -1,8 +1,9 @@
-from utils import *
+import streamlit as st
+from utils import process_fichier, process_video, predict, afficher_prediction
 
 IMG_W, IMG_H = 224, 224
 
-model = tf.keras.models.load_model('modelv2.keras')
+# model = tf.keras.models.load_model('modelv2.keras')
 # model = tf.keras.models.load_model('modelv1.keras')
 
 # Nom de l'application
