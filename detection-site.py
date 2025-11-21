@@ -6,19 +6,15 @@ IMG_W, IMG_H = 224, 224
 # Nom de l'application
 st.title('Détection du niveau de remplissage des conteneurs à déchets')
 
-col1, col2 = st.columns([4, 1])
-with col2:
-    with open("modelv1.keras", "rb") as fp:
-        btn = st.download_button(
-            label="Télécharger le modèle",
-            data=fp,
-            file_name="modelv1.keras",
-            mime="application/octet-stream"
-        )
-
-with col1:
-    # charger un fichier
-    fichier = st.file_uploader("Choisir un fichier", type=["png", "jpg", "jpeg", "mp4"])
+with open("modelv1.keras", "rb") as fp:
+    btn = st.download_button(
+        label="Télécharger le modèle",
+        data=fp,
+        file_name="modelv1.keras",
+        mime="application/octet-stream"
+    )
+# charger un fichier
+fichier = st.file_uploader("Choisir un fichier", type=["png", "jpg", "jpeg", "mp4"])
 
 # prendre une photo
 enable = st.checkbox("Enable camera", key="enable")
