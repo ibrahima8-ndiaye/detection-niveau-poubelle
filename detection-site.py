@@ -50,7 +50,7 @@ if fichier is not None:
         # affichage de l'image utilisée pour la prédiction
         st.image(fichier, use_container_width=True)
 
-col1, col2, col3 = st.columns([1, 2, 1])
+col1, col2, col3 = st.columns([1, 3, 1])
 with col2:
     with open("modelv1.keras", "rb") as fp:
         btn = st.download_button(
